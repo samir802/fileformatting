@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fileformatting/controllers/dashboard/doctors_screen_controller.dart';
 import 'package:fileformatting/models/all_doctors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

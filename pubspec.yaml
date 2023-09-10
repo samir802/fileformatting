@@ -1,7 +1,7 @@
 name: fileformatting
 description: A new Flutter project.
 
-publish_to: "none" 
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -33,17 +33,17 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-  - assets/icons/
-  - assets/images/
+    - assets/icons/
+    - assets/images/
 
 fonts:
-    - family: WorkSans
-      fonts:
-        - asset: assets/fonts/WorkSans-Light.ttf
-          weight: 300
-        - asset: assets/fonts/WorkSans-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/WorkSans-Bold.ttf
-          weight: 500
-        - asset: assets/fonts/WorkSans-ExtraBold.ttf
-          weight: 600
+  - family: WorkSans
+    fonts:
+      - asset: assets/fonts/WorkSans-Light.ttf
+        weight: 300
+      - asset: assets/fonts/WorkSans-Regular.ttf
+        weight: 400
+      - asset: assets/fonts/WorkSans-Bold.ttf
+        weight: 500
+      - asset: assets/fonts/WorkSans-ExtraBold.ttf
+        weight: 600
