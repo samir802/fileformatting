@@ -1,15 +1,16 @@
+import 'package:fileformatting/controllers/auth/login_controller.dart';
 import 'package:fileformatting/utils/colors.dart';
 import 'package:fileformatting/utils/image_path.dart';
+import 'package:fileformatting/utils/validator.dart';
 import 'package:fileformatting/views/auth/register_screen.dart';
-import 'package:fileformatting/views/dashboard/dash_screen.dart';
+// import 'package:fileformatting/views/dashboard/dash_screen.dart';
 import 'package:fileformatting/widgets/custom/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LogInScreen extends StatelessWidget {
   LogInScreen({super.key});
-
-  final keys1 = GlobalKey<FormState>();
+  final c = Get.put(LoginScreenController());
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +92,7 @@ class LogInScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 20),
                           Form(
-                            key: keys1,
+                            key: c.formKey,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -99,33 +100,23 @@ class LogInScreen extends StatelessWidget {
                                     style: TextStyle(fontSize: 16)),
                                 const SizedBox(height: 5),
                                 CustomTextField(
-                                  preIconPath: Icons.mail,
-                                  hint: "FlutterUI@gmail.com",
-                                  textInputAction: TextInputAction.next,
-                                  textInputType: TextInputType.name,
-                                  validator: (value) {
-                                    if (value!.isEmpty) {
-                                      return 'This field is required';
-                                    }
-                                    return null;
-                                  },
-                                ),
+                                    controller: c.emailController,
+                                    preIconPath: Icons.mail,
+                                    hint: "FlutterUI@gmail.com",
+                                    textInputAction: TextInputAction.next,
+                                    textInputType: TextInputType.emailAddress,
+                                    validator: Validators.checkEmailField),
                                 const SizedBox(height: 20),
                                 const Text("Your Password",
                                     style: TextStyle(fontSize: 16)),
                                 const SizedBox(height: 5),
                                 CustomTextField(
-                                  preIconPath: Icons.key,
-                                  hint: "******",
-                                  textInputAction: TextInputAction.done,
-                                  textInputType: TextInputType.name,
-                                  validator: (value) {
-                                    if (value!.isEmpty) {
-                                      return 'This field is required';
-                                    }
-                                    return null;
-                                  },
-                                ),
+                                    controller: c.passwordController,
+                                    preIconPath: Icons.key,
+                                    hint: "******",
+                                    textInputAction: TextInputAction.done,
+                                    textInputType: TextInputType.name,
+                                    validator: Validators.checkPasswordField),
                               ],
                             ),
                           ),
@@ -172,9 +163,7 @@ class LogInScreen extends StatelessWidget {
                                   height: 50,
                                   child: ElevatedButton(
                                     onPressed: () {
-                                      if (keys1.currentState!.validate()) {
-                                        Get.offAll(DashScreen());
-                                      }
+                                      c.onSubmit();
                                     },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor:
@@ -198,12 +187,6 @@ class LogInScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          // Row(
-                          //   children: [
-                          //     Flexible(child: CustomElevatedButton(title: "title", onTap: (){})),
-                          //     Flexible(child: CustomElevatedButton(title: "title", onTap: (){})),
-                          //   ],
-                          // ),
                           const SizedBox(
                             height: 20,
                           ),

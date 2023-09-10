@@ -6,9 +6,7 @@ import 'package:get/get.dart';
 
 class DashScreen extends StatelessWidget {
   DashScreen({super.key});
-
   final c = Get.put(DashScreenController());
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

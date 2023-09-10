@@ -1,7 +1,5 @@
 import 'package:fileformatting/models/all_doctors.dart';
-// import 'package:fileformatting/models/booking_history.dart';
 import 'package:fileformatting/repo/doctors_repo.dart';
-// import 'package:fileformatting/repo/history_repo.dart';
 import 'package:fileformatting/utils/custom_snackbar.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +21,7 @@ class DoctorScreenController extends GetxController {
       },
       onError: ((message) {
         loading.value = false;
-        CustomSnackBar.error(title: "History", message: message);
+        CustomSnackBar.error(title: "Doctors", message: message);
       }),
     );
   }

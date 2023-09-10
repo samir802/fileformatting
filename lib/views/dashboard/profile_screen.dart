@@ -1,3 +1,4 @@
+import 'package:fileformatting/controllers/dashboard/profile_screen_controller.dart';
 import 'package:fileformatting/utils/image_path.dart';
 import 'package:fileformatting/views/auth/change_profile_screen.dart';
 import 'package:fileformatting/widgets/custom/elevated_button.dart';
@@ -5,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  ProfileScreen({super.key});
+  
+  final c = Get.put(ProfileScreenController());
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +30,25 @@ class ProfileScreen extends StatelessWidget {
               height: 20,
             ),
             Padding(
-              padding: const EdgeInsets.only(left:50.0,right: 50.0),
+              padding: const EdgeInsets.only(left: 50.0, right: 50.0),
               child: CustomElevatedButton(
                   title: "Edit Profile",
                   onTap: () {
                     Get.to(ChangeProfile());
                   }),
+            ),
+            ListTile(
+              title: Text("Email"),
+              onTap: () {
+                c.sendMail();
+              },
+            ),
+            ListTile(
+              title: Text("Phone Number"),
+              onTap: () {
+                print("object");
+                c.launchPhoneNumber();
+              },
             )
           ],
         ),
