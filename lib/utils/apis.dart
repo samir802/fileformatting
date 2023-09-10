@@ -5,7 +5,7 @@ class Api {
   static const String registerUrl = "$baseUrl/api/register_user.php";
 
   static const String getHistory =
-      "$baseUrl/api/get_appointments.php?token=c2dc682038157651cb02cb20a6405e94";
+      "$baseUrl/api/get_appointments.php";
   static const String getDoctors = "$baseUrl/api/doctors.php";
 
   static const String addBooking = "$baseUrl/api/store_appointments.php";

@@ -20,6 +20,7 @@ class StorageHelper{
       return null;
     }
   }
+  
   static User? getUser(){
     log("Fetching user");
     try{

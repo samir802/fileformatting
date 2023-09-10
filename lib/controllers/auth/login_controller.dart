@@ -11,8 +11,11 @@ import 'dart:convert';
 
 class LoginScreenController extends GetxController {
   final formKey = GlobalKey<FormState>();
+
   RxBool passwordObscure = true.obs;
+
   final passwordController = TextEditingController();
+
   final emailController = TextEditingController();
   final loading = SimpleFontelicoProgressDialog(
       context: Get.context!, barrierDimisable: false);
@@ -32,7 +35,7 @@ class LoginScreenController extends GetxController {
             final box = GetStorage();
             await box.write(StorageKeys.USER, json.encode(user.toJson()));
             await box.write(
-                StorageKeys.ACCESS_TOKEN, json.encode(user.toJson()));
+                StorageKeys.ACCESS_TOKEN, token);
             Get.find<CoreController>().loadCurrentUser();
             Get.offAll(() => DashScreen());
             CustomSnackBar.success(

@@ -184,7 +184,7 @@ class SinglePage extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(blurRadius: 1, color: Colors.green)
                         ]),
                     child: Center(
