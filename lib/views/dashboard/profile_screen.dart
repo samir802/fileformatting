@@ -1,3 +1,4 @@
+import 'package:fileformatting/controllers/core_controller.dart';
 import 'package:fileformatting/controllers/dashboard/profile_screen_controller.dart';
 import 'package:fileformatting/utils/image_path.dart';
 import 'package:fileformatting/views/auth/change_profile_screen.dart';
@@ -7,8 +8,9 @@ import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
-  
+
   final c = Get.put(ProfileScreenController());
+  final d = Get.put(CoreController());
 
   @override
   Widget build(BuildContext context) {
@@ -38,17 +40,23 @@ class ProfileScreen extends StatelessWidget {
                   }),
             ),
             ListTile(
-              title: Text("Email"),
+              title: const Text("Email"),
               onTap: () {
                 c.sendMail();
               },
             ),
             ListTile(
-              title: Text("Phone Number"),
+              title: const Text("Phone Number"),
               onTap: () {
-                print("object");
+                // print("object");
                 c.launchPhoneNumber();
               },
+            ),
+            ElevatedButton(
+              onPressed: () {
+                d.logOut();
+              },
+              child: const Text("Logout"),
             )
           ],
         ),
