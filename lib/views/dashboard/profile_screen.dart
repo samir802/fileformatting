@@ -57,7 +57,7 @@ class ProfileScreen extends StatelessWidget {
                 d.logOut();
               },
               child: const Text("Logout"),
-            )
+            ),
           ],
         ),
       )),

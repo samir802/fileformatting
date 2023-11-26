@@ -3,7 +3,6 @@ import 'package:fileformatting/utils/colors.dart';
 import 'package:fileformatting/utils/image_path.dart';
 import 'package:fileformatting/utils/validator.dart';
 import 'package:fileformatting/views/auth/register_screen.dart';
-// import 'package:fileformatting/views/dashboard/dash_screen.dart';
 import 'package:fileformatting/widgets/custom/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
