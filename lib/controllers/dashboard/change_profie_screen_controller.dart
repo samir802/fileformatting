@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import "package:async/async.dart";
+import 'package:fileformatting/utils/custom_snackbar.dart';
 import 'package:get/get.dart';
 
 import 'package:path/path.dart';
@@ -12,7 +13,7 @@ import 'package:image_picker/image_picker.dart';
 
 class ChangeProfileController extends GetxController {
   final keys = GlobalKey<FormState>;
-  File path = File("");
+  File paths = File("");
 
   Rxn<File> profile = Rxn<File>();
   final picker = ImagePicker();
@@ -22,30 +23,9 @@ class ChangeProfileController extends GetxController {
         source: ImageSource.gallery, maxHeight: 500, maxWidth: 500);
     if (pickedImage != null) {
       profile.value = File(pickedImage.path);
-      path = File(pickedImage.path);
-
-      // String imageName = extractImagePath(pickedImage.path);
-      // saveImage(File(pickedImage.path), imageName);
+      paths = File(pickedImage.path);
     }
   }
-
-  // String extractImagePath(String path) {
-  //   return path.split('/').last;
-  // }
-
-  // Future saveImage(File imagePath, String imageName) async {
-  //   const savedImagePath = "../assets/images/";
-  //   print(savedImagePath);
-  //   // Create the folder if it doesn't exist
-  //   // await Directory(savedImagePath).create(recursive: true);
-
-  //   final newImagePath = savedImagePath + imageName;
-
-  //   // Copy the image to the new path
-  //   await imagePath.copy(newImagePath);
-
-  //   print("Image saved to: $newImagePath");
-  // }
 
   Future addImage(File imageFile) async {
 // ignore: deprecated_member_use
@@ -59,5 +39,12 @@ class ChangeProfileController extends GetxController {
         filename: basename(imageFile.path));
 
     request.files.add(multipartFile);
+    var respond = await request.send();
+    if (respond.statusCode == 200) {
+      CustomSnackBar.success(
+          title: "Upload", message: "Image Uploaded Successfully");
+    } else {
+      CustomSnackBar.error(title: "Upload", message: "Image Uploaded Failed");
+    }
   }
 }

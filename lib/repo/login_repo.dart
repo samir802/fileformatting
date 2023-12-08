@@ -15,7 +15,6 @@ class LoginRepo {
     try {
       var headers = {
         "Accept": "application/json",
-        
       };
       var body = {"email": email, "password": password, "type": "customer"};
       http.Response response = await http.post(Uri.parse(Api.loginUrl),

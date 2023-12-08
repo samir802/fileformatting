@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   c.pickImage();
-                  c.addImage(c.path);
+                  c.addImage(c.paths);
                 },
                 child: const Text(
                   "Change avatar",

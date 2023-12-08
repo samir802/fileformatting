@@ -5,20 +5,20 @@ import 'package:fileformatting/views/dashboard/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class DashScreenController extends GetxController{
+class DashScreenController extends GetxController {
   final key = GlobalKey<ScaffoldState>();
   RxList<Widget> pages = RxList(
     [
       HomeScreen(),
       HistoryScreen(),
       DoctorScreen(),
-      ProfileScreen(),      
+      ProfileScreen(),
     ],
   );
 
   RxInt currentIndex = RxInt(0);
 
-  void onItemTapped(int index){
+  void onItemTapped(int index) {
     currentIndex.value = index;
   }
 }
